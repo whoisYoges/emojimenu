@@ -38,7 +38,7 @@ sudo mv emojimenu /usr/local/bin/emojimenu
 # Uninstallation
 
 ```
-sudo rm /usr/share/allemojis.txt /usr/local/bin/emojimenu
+sudo rm /usr/share/emojimenu/allemojis.txt /usr/local/bin/emojimenu
 ```
 
 # FAQ
