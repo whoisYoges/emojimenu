@@ -27,7 +27,8 @@ yay -S emojimenu
 ## From Source
 
 ```
-curl -LOS "https://raw.githubusercontent.com/whoisYoges/emojimenu/master/allemojis.txt" "https://raw.githubusercontent.com/whoisYoges/emojimenu/master/emojimenu"
+curl -LOS "https://raw.githubusercontent.com/whoisYoges/emojimenu/master/allemojis.txt"
+curl -LOS "https://raw.githubusercontent.com/whoisYoges/emojimenu/master/emojimenu"
 chmod +x emojimenu
 sudo mkdir -p /usr/share/emojimenu
 sudo mv allemojis.txt /usr/share/allemojis.txt
