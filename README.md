@@ -31,7 +31,7 @@ curl -LOS "https://raw.githubusercontent.com/whoisYoges/emojimenu/master/allemoj
 curl -LOS "https://raw.githubusercontent.com/whoisYoges/emojimenu/master/emojimenu"
 chmod +x emojimenu
 sudo mkdir -p /usr/share/emojimenu
-sudo mv allemojis.txt /usr/share/allemojis.txt
+sudo mv allemojis.txt /usr/share/emojimenu/allemojis.txt
 sudo mv emojimenu /usr/local/bin/emojimenu
 ```
 
