@@ -31,7 +31,7 @@ main() {
 
 menuCheck() {
     if type dmenu > /dev/null 2>&1; then
-        menu="dmenu -l 10"
+        menu="dmenu -l -i 10"
     elif type rofi > /dev/null 2>&1; then
         menu="rofi -dmenu"
     else
