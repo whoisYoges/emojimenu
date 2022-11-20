@@ -21,13 +21,14 @@ Search, copy and insert any emoji by name using dmenu/rofi.
 Use your favourite aur helper (eg: yay) and install [emojimenu](https://aur.archlinux.org/emojimenu.git) from aur.
 
 ```
-yay -S local-arch-wiki
+yay -S emojimenu
 ```
 
 ## From Source
 
 ```
 curl -LOS "https://raw.githubusercontent.com/whoisYoges/emojimenu/master/allemojis.txt" "https://raw.githubusercontent.com/whoisYoges/emojimenu/master/emojimenu"
+chmod +x emojimenu
 sudo mkdir -p /usr/share/emojimenu
 sudo mv allemojis.txt /usr/share/allemojis.txt
 sudo mv emojimenu /usr/local/bin/emojimenu
