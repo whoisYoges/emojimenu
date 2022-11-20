@@ -18,7 +18,7 @@ Search, copy and insert any emoji by name using dmenu/rofi.
 
 ## Arch and arch based systems
 
-Use your favourite aur helper (eg: yay) and install [emojimenu](https://aur.archlinux.org/emojimenu.git) from aur.
+Use your favourite aur helper (eg: yay) and install [emojimenu](https://aur.archlinux.org/packages/emojimenu) from aur.
 
 ```
 yay -S emojimenu
