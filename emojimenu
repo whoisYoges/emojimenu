@@ -1,0 +1,68 @@
+#!/usr/bin/env sh
+
+file_path="/usr/share/emojimenu/allemojis.txt"
+ver="1.0"
+
+main() {
+	menuCheck
+
+	# If you run this command with an argument, it will automatically insert the character.
+	# Otherwise, copy and show a message that the emoji has been copied.
+	if [ -n "$1" ]; then
+		if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+			helpText
+		elif [ "$1" = "-v" ]; then
+			versionText
+		elif [ "$1" = "-w" ]; then
+			choseEmoji
+			xdotool type "$chosen"
+		else
+			echo "Invalid argument"
+			notify-send "Invalid argument" &
+			exit 1
+		fi
+	else
+		choseEmoji
+		printf "%s" "$chosen" | xclip -selection clipboard
+		notify-send "'$chosen' copied to clipboard." &
+		exit 0
+	fi
+}
+
+menuCheck() {
+    if type dmenu > /dev/null 2>&1; then
+        menu="dmenu -l 10"
+    elif type rofi > /dev/null 2>&1; then
+        menu="rofi -dmenu"
+    else
+        echo "Dependency error, please install dmenu or rofi."
+        notify-send "Dependency error, please install dmenu or rofi."
+        exit 1
+    fi
+}
+choseEmoji() {
+	# Get user selection via dmenu from emoji file.
+	chosen="$(cut -d ';' -f1 $file_path | $menu | sed "s/ .*//")"
+
+	# Exit if none chosen.
+	[ -z "$chosen" ] && exit
+}
+
+helpText() {
+	cat <<EOF
+emojimenu - select, copy and use emoji from dmenu and rofi.
+
+Usage:
+  emojimenu 
+  emojimenu [-w]
+Options:
+  -h, --help	show this help text
+  -v 		output version information
+  -w 		write/insert the selected emoji automatically
+EOF
+}
+
+versionText() {
+	echo "emojimenu-$ver"	
+}
+main "$@"
